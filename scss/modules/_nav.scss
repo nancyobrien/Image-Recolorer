@@ -1,0 +1,222 @@
+$logo-font-sizes: (
+  null  : 1.0em,
+  $sm-width : 1.25em,
+  $md-width : 1.25em,
+  $lg-width: 1.5em,
+  $xl-width: 2.25em
+);
+
+
+.navigation {
+  background-color: $white;
+}
+
+.main-nav {
+  padding: 1em 0;
+  @include outer-container;
+}
+  // LOGO AND MENU BUTTON STYLES
+  .main-nav_icon-container {
+    float: left;
+    width: 100%;
+
+    @include md {
+      width: auto;
+    }
+  }
+
+  .main-logo {
+      height: 40px;
+      display: block;
+      float: left;
+      margin-bottom: 1em;
+      margin-left: 1em;
+
+      @include md {
+        height: 50px;
+      }
+
+      @include xl {
+        margin-left: 0;
+      }
+
+      img {
+        height: 100%;
+        vertical-align: middle;
+        margin-right: .5em;
+      }
+
+      h1 {
+        vertical-align: middle;
+        color: $highlight-color;
+        display: inline-block;
+
+        @include font-size($logo-font-sizes);
+
+        @include md {
+            max-width: 7em;
+        }
+        @include xl {
+            max-width: 15em;
+        }
+      }
+
+    }
+
+    .main-nav_button {
+      float: right;
+      color: $highlight-color;
+      padding: .5em;
+      margin-right: 1em;
+
+      // Clean up the tap color on iOS and Android
+      -webkit-tap-highlight-color: rgba(255, 255, 255, .1);
+      -webkit-tap-highlight-color: rgba(255, 255, 255, .1);  // i.e. Nexus5/Chrome and Kindle Fire HD 7''
+
+      &:hover, &:active, &:focus {
+        color: $highlight-color;
+      }
+
+      @include md {
+        display: none;
+      }
+    }
+      .main-nav_button-icon {
+        font-size: 2.2em;
+        vertical-align: middle;
+      }
+      .main-nav_close-icon {
+        display: none;
+        color: $highlight-color;
+        font-size: 2.2em;
+        vertical-align: middle;
+      }
+      .main-nav_button-text {
+        vertical-align: middle;
+        font-size: 1.2em;
+      }
+
+  // LIST STYLES
+  .main-nav_list {
+    display: none;
+    float: left;
+    width: 100%;
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+
+    @include md {
+      display: block !important;
+      float: right;
+      width: auto;
+    }
+  }
+    .main-nav_list-item {
+      display: block;
+      width: 100%;
+      border-bottom: 4px solid $highlight-color;
+
+
+      @include md {
+        display: inline-block;
+        width: auto;
+
+        &:hover {
+          background-color: $secondary-color;
+          color: white;
+          .main-nav_link {
+            color: white;
+          }
+          .main-nav_sub-list {
+            display: block !important;
+            position: absolute;
+            width: auto;
+          }
+            .main-nav_sub-link {
+              padding-right: 3em;
+            }
+        }
+      }
+    }
+      .main-nav_link {
+        display: block;
+        padding: .6em 1.0em;
+        font-size: 1.15em;
+        color: $highlight-color;
+        text-align: center;
+        font-weight: bold;
+
+        @include transition(all .3s);
+
+
+        &:hover {
+
+          &:focus, &:active {
+            color: lighten($light-gray, 15%);
+          }
+        }
+        &:focus, &:active {
+          color: $highlight-color;
+        }
+
+        &.is-active {
+          background: $highlight-color;
+          color: white;
+        }
+
+        @include md {
+          display: inline-block;
+          font-size: 0.85em;
+        }
+        @include lg {
+          padding: .6em 1.5em;
+          font-size: 1.1em;
+        }
+      }
+
+        // SUB LIST STYLES
+        .main-nav_sub-list {
+          display: none;
+          width: 100%;
+          background-color: white;
+          border: 1px solid $secondary-color;
+          border-width: 4px 1px 4px 1px;
+          list-style: none;
+          padding-left: 0;
+          z-index: 10000;
+
+          @include md {
+            display: none !important;
+          }
+        }
+        .main-nav_sub-list-item {
+            display: block;
+            width: 100%;
+        }
+
+        .main-nav_sub-link {
+          display: block;
+          padding: .5em 1em;
+          font-size: 1em;
+          color: $highlight-color;
+          text-align: center;
+          font-weight: bold;
+          @include transition(all, .3s);
+
+          &:hover {
+            color: white;
+            background-color: $secondary-color;
+          }
+
+          &:focus, &:active {
+            color: $highlight-color;
+            &:hover {
+              color: white;
+              background-color: $highlight-color;
+            }
+          }
+
+          @include md {
+            text-align: left;
+          }
+        }

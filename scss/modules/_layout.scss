@@ -1,0 +1,9 @@
+
+.wrapper {
+	@include outer-container;
+	position: relative;
+}
+
+.main-content {
+	@include span-columns(12);
+}

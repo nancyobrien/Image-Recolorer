@@ -1,0 +1,84 @@
+
+	<!DOCTYPE html>
+	<!--[if lt IE 9]> <html class="no-js lt-ie9"> <![endif]-->
+	<!--[if gt IE 8]><!-->
+	<html class="no-js">
+	<!--<![endif]-->
+
+	<head>
+
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Recolor from grayscale</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+		<link rel="stylesheet" href="styles/main.css">
+
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+		<script src="js/vendor/ie8-fallback.js"></script>
+		<![endif]-->
+
+
+	</head>
+
+	<body>
+
+		<div class="box">
+			<div class="row header">
+				<div class="ctrls">
+					<div class="inputs">
+						<input type="file" class="fileReference" data-buttontext="Color Profile">
+						<input type="file" class="fileUpload" data-buttontext="Image">
+					</div><div class="buttons">
+					</div>
+
+				</div>
+			</div>
+			<div class="row content">
+				<div class="sidebar">
+					<div class="buttons">
+						<a href="#" class="button grayscale">Gray It!</a>
+						<a href="#" class="button recolor">Recolor</a>
+						<a href="#" class="button recolorHue">Recolor (Hue)</a>
+						<a href="#" class="button recolorOverlay">Recolor (Overlay)</a>
+						<a href="#" class="button restore">Restore</a>
+						<div><input type="checkbox" id="singleUse">Single Use point</div>
+						<div><input type="checkbox" id="unweighted">Unweighted</div>
+						<div><input type="checkbox" id="recursive">Recursive</div>
+						<div><input type="checkbox" id="weightHue">Weight Hue Brightness</div>
+						<div><input type="text" id="weightHueValue" value="2" />Weight Hue Value</div>
+						<select id="hueMatch"><option value="0">Hue</option><option value="1">Saturation</option><option value="2">Luminosity</option></select>
+
+						<div class="ranges">
+							Brightness Bins: <span><input id="brightnessBins" class="rangeCtrl" type ="range" min =".5" max="5000" step =".5" value ="1000"/><label for="brightnessBins"></label></span>
+							Hue Bins: <span><input id="hueBins" class="rangeCtrl" type ="range" min =".5" max="500" step =".5" value ="10"/><label for="hueBins"></label></span>
+							Overlay Opacity: <span><input id="overlayOpacity" class="rangeCtrl" type ="range" min ="0" max="1" step =".05" value =".8"/><label for="overlayOpacity"></label></span>
+						</div>
+
+						<div class="colorprofile">
+							<canvas id="colorProfile"></canvas>
+						</div>
+					</div>
+
+				</div>
+				<div class="canvasContainer">
+					<canvas id="myCanvas" class="displayCanvas" width="578" height="200"></canvas>
+					<canvas id="overlayCanvas" class="displayCanvas" width="578" height="200"></canvas>
+				</div>
+				<div class="loading">
+					<img class="loadImage" src="images/balls.svg" />
+				</div>
+			</div>
+		</div>
+
+
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+		<script src="/js/main.js"></script>
+	</body>
+
+	</html>

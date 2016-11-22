@@ -1,0 +1,39 @@
+.ctrls {
+	border-radius: 3px;
+	padding: 1em;
+	margin: .25em 0;
+	position: relative;
+	.inputs {
+		max-width: 500px;
+		display: inline-block;
+		input {
+			max-width: 200px;
+			display: inline-block;
+			position: relative;
+			&:after{
+				position: absolute;
+				top: -5px;
+				left: 0;
+				width: 100%;
+				//height: 100%;
+				background: green;
+				content: attr(data-buttontext);
+				color: white;
+				font-weight: bold;
+				text-align: center;
+				cursor: pointer;
+				vertical-align: middle;
+				padding: .75em 1em;
+			}
+		}
+		margin-right: 3em;
+	}
+	.buttons {
+		display: inline-block;
+	}
+
+
+	#hueMatch {
+		display: inline;
+	}
+}
